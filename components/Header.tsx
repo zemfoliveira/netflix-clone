@@ -45,6 +45,7 @@ function Header() {
             src="https://rb.gy/g1pwyx"
             alt="Profile logo"
             className="cursor-pointer rounded"
+            draggable={false}
           />
         </Link>
       </div>

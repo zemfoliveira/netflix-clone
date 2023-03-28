@@ -1,6 +1,8 @@
+import { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { useForm, SubmitHandler } from "react-hook-form";
+import useAuth from "@/hooks/useAuth";
 
 interface Inputs {
   email: string;
@@ -8,17 +10,25 @@ interface Inputs {
 }
 
 export default function Login() {
+  const [isSignIn, setIsSignIn] = useState(true);
+  const { signIn, signUp } = useAuth();
+
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
+    if (isSignIn) {
+      await signIn(email, password);
+    } else {
+      await signUp(email, password);
+    }
+  };
 
   return (
-    <div className="relative flex w-screen h-screen flex-col bg-[#141414] md:items-center md:justify-center md:bg-transparent">
+    <div className="relative flex w-full h-screen flex-col bg-[#141414] md:items-center md:justify-center md:bg-transparent">
       <Head>
         <title>Login - Netflix</title>
         <link rel="icon" href="/favicon.ico" />
@@ -39,7 +49,7 @@ export default function Login() {
       />
 
       <form
-        className="relative mt-24 space-y-8 rounded-lg bg-[#141414]/75 py-10 px-6 md:mt-0 md:max-w-md md:px-14"
+        className="relative mt-24 space-y-8 rounded-lg bg-[#141414] md:bg-black/80 py-10 px-6 md:mt-0 md:max-w-md md:px-14"
         onSubmit={handleSubmit(onSubmit)}
       >
         <h1 className="text-4xl font-semibold">Sign In</h1>
@@ -76,13 +86,19 @@ export default function Login() {
           </label>
         </div>
 
-        <button className="w-full rounded bg-[#e50914] py-3 font-semibold ">
+        <button
+          className="w-full rounded bg-[#e50914] py-3 font-semibold"
+          onClick={() => setIsSignIn(true)}
+        >
           Sign in
         </button>
 
         <div className="text-[gray]">
           New to Netflix?{" "}
-          <button className="cursor-pointer text-white hover:underline">
+          <button
+            className="cursor-pointer text-white hover:underline"
+            onClick={() => setIsSignIn(false)}
+          >
             Sign up now
           </button>
         </div>
