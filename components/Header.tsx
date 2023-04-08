@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { BellIcon, MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import BasicMenu from "./BasicMenu";
+import Image from "next/image";
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,8 +21,9 @@ function Header() {
   return (
     <header className={`${isScrolled && "bg-[#141414]"}`}>
       <div className="flex items-center space-x-2 md:space-x-10">
-        <img
+        <Image
           src="https://rb.gy/ulxxee"
+          alt="Netflix logo"
           width={100}
           height={100}
           className="cursor-pointer object-contain"
@@ -44,7 +46,7 @@ function Header() {
         <p className="hidden lg:inline">Kids</p>
         <BellIcon className="w-6 h-6" />
         <Link href="/account">
-          <img
+          <Image
             src="https://rb.gy/g1pwyx"
             alt="Profile logo"
             className="cursor-pointer rounded"

@@ -7,6 +7,7 @@ import Link from "next/link";
 import { GetStaticProps } from "next";
 import payments, { goToBillingPortal } from "@/lib/stripe";
 import Membership from "@/components/Membership";
+import Image from "next/image";
 
 interface AccountProps {
   products: Product[];
@@ -28,17 +29,18 @@ function Account({ products }: AccountProps) {
 
       <header className="bg-[#141414] ">
         <Link href="/">
-          <img
+          <Image
             src="https://rb.gy/ulxxee"
+            alt="Netflix logo"
             width={120}
             height={120}
             className="cursor-pointer object-contain"
           />
         </Link>
         <Link href="/account">
-          <img
+          <Image
             src="https://rb.gy/g1pwyx"
-            alt=""
+            alt="Profile image"
             className="cursor-pointer rounded"
           />
         </Link>
@@ -48,7 +50,11 @@ function Account({ products }: AccountProps) {
         <div className="flex flex-col gap-x-4 md:flex-row md:items-center">
           <h1 className="text-3xl md:text-4xl">Account</h1>
           <div className="-ml-0.5 flex items-center gap-x-1.5">
-            <img src="https://rb.gy/4vfk4r" alt="" className="h-7 w-7" />
+            <Image
+              src="https://rb.gy/4vfk4r"
+              alt="Play logo"
+              className="h-7 w-7"
+            />
             <p className="text-xs font-semibold text-[#555]">
               Member since {subscription?.created}
             </p>

@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Loader from "./Loader";
 import Table from "./Table";
+import Image from "next/image";
 
 interface PlansProps {
   products: Product[];
@@ -33,7 +34,7 @@ function Plans({ products }: PlansProps) {
 
       <header>
         <Link href="/">
-          <img
+          <Image
             src="https://rb.gy/ulxxee"
             alt="Netflix logo"
             width={150}
