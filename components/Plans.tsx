@@ -34,7 +34,7 @@ function Plans({ products }: PlansProps) {
 
       <header>
         <Link href="/">
-          <Image
+          <img
             src="https://rb.gy/ulxxee"
             alt="Netflix logo"
             width={150}
@@ -52,7 +52,7 @@ function Plans({ products }: PlansProps) {
 
       <main className="mx-auto max-w-5xl px-5 pt-28 pb-12 transition-all md:px-10">
         <h1 className="mb-3 text-3xl font-medium">
-          Choose the plan that's right for you
+          Choose the plan that&apos;s right for you
         </h1>
         <ul>
           <li className="flex items-center gap-x-2 text-lg">

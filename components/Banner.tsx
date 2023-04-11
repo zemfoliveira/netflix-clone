@@ -27,15 +27,20 @@ function Banner({ netflixOriginals }: BannerProps) {
     );
   }, [netflixOriginals]);
 
+  console.log(movie?.backdrop_path);
+  console.log(movie?.poster_path);
+
   return (
     <div className="flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12">
       <div className="absolute top-0 left-0 -z-10 h-[95vh] w-full">
-        <Image
-          fill
-          alt="Banner Image"
-          src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`}
-          style={{ objectFit: "cover" }}
-        />
+        {(movie?.backdrop_path || movie?.poster_path) && (
+          <Image
+            src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`}
+            alt="Banner Image"
+            style={{ objectFit: "cover" }}
+            fill
+          />
+        )}
       </div>
 
       <h1 className="text-2xl md:text-4xl lg:text-7xl font-bold">

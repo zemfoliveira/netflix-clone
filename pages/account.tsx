@@ -29,7 +29,7 @@ function Account({ products }: AccountProps) {
 
       <header className="bg-[#141414] ">
         <Link href="/">
-          <Image
+          <img
             src="https://rb.gy/ulxxee"
             alt="Netflix logo"
             width={120}
@@ -38,7 +38,7 @@ function Account({ products }: AccountProps) {
           />
         </Link>
         <Link href="/account">
-          <Image
+          <img
             src="https://rb.gy/g1pwyx"
             alt="Profile image"
             className="cursor-pointer rounded"
@@ -50,7 +50,7 @@ function Account({ products }: AccountProps) {
         <div className="flex flex-col gap-x-4 md:flex-row md:items-center">
           <h1 className="text-3xl md:text-4xl">Account</h1>
           <div className="-ml-0.5 flex items-center gap-x-1.5">
-            <Image
+            <img
               src="https://rb.gy/4vfk4r"
               alt="Play logo"
               className="h-7 w-7"
